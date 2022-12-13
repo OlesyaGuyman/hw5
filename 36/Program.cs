@@ -3,22 +3,27 @@
 [3, 7, 23, 12] -> 19
 [-4, -6, 89, 6] -> 0 */
 
+int numberElements = Convert.ToInt32(Console.ReadLine()); 
 
+int RandomNumbers(int numberElements, int min, int max)
+  {
+  int[] randomNumbers = new int[numberElements];
+  int sumElements = 0;
+  Console.Write("Получившийся массив: ");
 
-int[] array = {2, 6, 4, 8, 9, 4, 3, 7, 12, 6, 3, 5};
+    for (int i = 0; i <randomNumbers.Length; i++ ){
+      randomNumbers[i] = new Random().Next(min, max);
 
-int OddIndexSum(int[] arr)
-{
-    int sum = 0;
-    for (int i = 0; i < arr.Length; i++)
-    {
-        if (i % 2 != 0)
-        {
-            sum += arr[i];
-        }
+      Console.Write(randomNumbers[i] + " ");
+
+      if (i % 2 != 1)
+      {
+        sumElements = sumElements + randomNumbers[i];
+      }
     }
-    return sum;
-}
+  return sumElements;
+  }
 
-int oddSum = OddIndexSum(array);
-Console.WriteLine(oddSum);
+int randomNumbers =  RandomNumbers(numberElements, 1, 10);
+
+Console.WriteLine($"\nСумма элементов, стоящих на нечётных позициях: {randomNumbers}");
